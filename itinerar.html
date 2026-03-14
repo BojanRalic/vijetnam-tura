@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Itinerar — Queen of Compass Vijetnam 2026</title>
+  <meta name="description" content="Plan i program putovanja kroz Vijetnam, 8–22. april 2026. Dan po dan — Hanoi, Ha Long Bay, Hoi An, Ho Chi Minh City." />
+  <meta property="og:title" content="Itinerar — Vijetnam, april 2026." />
+  <meta property="og:image" content="https://vietnam-trip-website.vercel.app/images/11-april.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --zelena: #4d5b28; --zelena-light: #5e7030; --zelena-dark: #3a4420;
+      --zuta: #ffff00; --ljubicasta: #b282ff; --narandzasta: #ff9812;
+      --roza: #e35eee; --bela: #fafaf5; --tamna: #1a1f0e; --siva: #6b7280;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--tamna); color: var(--bela); overflow-x: hidden; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; }
+    .nav.scrolled { background: rgba(26,31,14,0.95); backdrop-filter: blur(20px); padding: 0.8rem 2.5rem; border-bottom: 1px solid rgba(77,91,40,0.3); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: rgba(250,250,245,0.75); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--zuta); transition: width 0.3s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--zuta); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--bela); transition: all 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--tamna); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--bela); text-decoration: none; transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--zuta); }
+
+    /* PAGE HERO */
+    .page-hero {
+      min-height: 55vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+      padding: 0 5vw 6vh;
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://vietnam-trip-website.vercel.app/images/12-april.webp');
+      background-size: cover; background-position: center;
+    }
+    .page-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(26,31,14,0.3) 0%, rgba(26,31,14,0.92) 100%);
+    }
+    .page-hero-content { position: relative; z-index: 2; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--narandzasta); margin-bottom: 1rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: currentColor; }
+    .page-hero h1 { font-size: clamp(3rem, 7vw, 6rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+    .page-hero h1 em { font-style: italic; color: var(--narandzasta); }
+    .page-hero p { font-size: 1.05rem; color: rgba(250,250,245,0.7); margin-top: 1rem; max-width: 500px; line-height: 1.6; }
+
+    /* ITINERARY */
+    .itinerary-main { max-width: 1100px; margin: 0 auto; padding: 6rem 5vw; }
+
+    .phase-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      margin-top: 4rem;
+    }
+    .phase-label:first-child { margin-top: 0; }
+    .phase-label h2 { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,250,245,0.35); white-space: nowrap; }
+    .phase-line { flex: 1; height: 1px; background: rgba(77,91,40,0.4); }
+
+    .day-entry {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      border-bottom: 1px solid rgba(77,91,40,0.2);
+      transition: background 0.3s;
+    }
+    .day-entry:hover { background: rgba(77,91,40,0.05); }
+
+    .day-image-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .day-image-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.85) saturate(0.9);
+    }
+    .day-entry:hover .day-image-wrap img { transform: scale(1.05); filter: brightness(0.95) saturate(1.05); }
+
+    .day-date-overlay {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: rgba(26,31,14,0.85);
+      padding: 0.4rem 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--narandzasta);
+    }
+
+    .day-body {
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .day-num-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(250,250,245,0.35);
+    }
+
+    .day-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .day-location {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--narandzasta);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .day-desc {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(250,250,245,0.7);
+      flex: 1;
+    }
+
+    .day-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .highlight-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid rgba(250,250,245,0.1);
+      color: rgba(250,250,245,0.5);
+      background: rgba(250,250,245,0.03);
+    }
+
+    /* FOOTER */
+    footer { background: #0f1308; padding: 3rem 5vw; border-top: 1px solid rgba(77,91,40,0.3); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; }
+    .footer-brand span { color: var(--zuta); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; }
+    .footer-links a { text-decoration: none; color: rgba(250,250,245,0.5); font-size: 0.82rem; letter-spacing: 0.05em; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--zuta); }
+    .footer-copy { font-size: 0.78rem; color: rgba(250,250,245,0.25); }
+
+    /* WHATSAPP */
+    .whatsapp-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; background: #25D366; color: #fff; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; }
+    .whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+    .whatsapp-btn svg { width: 28px; height: 28px; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .day-entry { grid-template-columns: 1fr; }
+      .day-image-wrap { aspect-ratio: 16/9; }
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 1rem 1.5rem; }
+      .nav.scrolled { padding: 0.75rem 1.5rem; }
+      .itinerary-main { padding: 4rem 1.5rem; }
+      .day-body { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav-logo">
+    <img src="https://vietnam-trip-website.vercel.app/images/logo.webp" alt="Queen of Compass" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Početna</a></li>
+    <li><a href="itinerar.html" class="active">Itinerar</a></li>
+    <li><a href="galerija.html">Galerija</a></li>
+    <li><a href="smestaji.html">Smeštaji</a></li>
+    <li><a href="cena.html">Cena</a></li>
+    <li><a href="za-koga.html">Za koga</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobileMenu()">Početna</a>
+  <a href="itinerar.html" onclick="closeMobileMenu()">Itinerar</a>
+  <a href="galerija.html" onclick="closeMobileMenu()">Galerija</a>
+  <a href="smestaji.html" onclick="closeMobileMenu()">Smeštaji</a>
+  <a href="cena.html" onclick="closeMobileMenu()">Cena</a>
+  <a href="za-koga.html" onclick="closeMobileMenu()">Za koga</a>
+  <a href="faq.html" onclick="closeMobileMenu()">FAQ</a>
+  <a href="kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">8–22. april 2026.</div>
+    <h1>Plan &<br/><em>program</em></h1>
+    <p>15 dana Vijetnama, od severa do juga. Svaki dan je nova priča.</p>
+  </div>
+</div>
+
+<div class="itinerary-main">
+
+  <!-- SEVER -->
+  <div class="phase-label">
+    <div class="phase-line"></div>
+    <h2>Sever — Hanoi & Ha Long</h2>
+    <div class="phase-line"></div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/8-april.webp" alt="Polazak" loading="lazy" />
+      <div class="day-date-overlay">08. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 1</div>
+      <div class="day-title">Polazak — doček u Hanoju</div>
+      <div class="day-location">✈ Beograd → Hanoi</div>
+      <p class="day-desc">
+        Jutarnji let iz Beograda, stigneš kasno uveče u Hanoi. Irena i Bojan dočekuju
+        na aerodromu i voze u hotel u srcu starog grada. Kratka šetnja, prva vijetnamska
+        piva na ulici, i predah pred velikim danima koji slede.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">✈ Let</span>
+        <span class="highlight-tag">🏨 Hotel u starom gradu</span>
+        <span class="highlight-tag">🍺 Dobrodošlica</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=600&q=80" alt="Hanoi stari grad" loading="lazy" />
+      <div class="day-date-overlay">09. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 2</div>
+      <div class="day-title">Hanoi — stari grad, jezero, hrana</div>
+      <div class="day-location">📍 Hanoi</div>
+      <p class="day-desc">
+        Jutro počinje Hoan Kiem jezerom i Ngoc Son hramom. Zatim pešačimo kroz 36 ulica
+        starog grada — svaka ima svoju trgovinu i miris. Ručak na lokalu koji znaju samo
+        oni koji tu žive. Uveče, kuvarski workshop: pravimo Pho sami.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🏛 Hoan Kiem</span>
+        <span class="highlight-tag">🚶 Stari grad</span>
+        <span class="highlight-tag">🍜 Pho workshop</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/10-april.webp" alt="Hanoi" loading="lazy" />
+      <div class="day-date-overlay">10. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 3</div>
+      <div class="day-title">Hanoi — tržnica, hramovi, slobodno vreme</div>
+      <div class="day-location">📍 Hanoi</div>
+      <p class="day-desc">
+        Jutarnja poseta Dong Xuan tržnici — najvećoj u Hanoju. Obilazak hrama
+        literature — najstarijeg univerziteta u Vijetnamu. Popodne slobodno za
+        šetnju, kafu i razgledanje. Uveče zajedno na ulici Bia Hoi.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🏪 Dong Xuan tržnica</span>
+        <span class="highlight-tag">🏛 Hram literature</span>
+        <span class="highlight-tag">🍺 Bia Hoi ugao</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/11-april.webp" alt="Ha Long Bay" loading="lazy" />
+      <div class="day-date-overlay">11. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 4</div>
+      <div class="day-title">Ha Long Bay — ukrcavanje na brod</div>
+      <div class="day-location">⛵ Ha Long Bay</div>
+      <p class="day-desc">
+        Transfer iz Hanoja (3.5h). Ukrcavanje na privatni brod sredinom dana.
+        Isplovljavanje kroz more krečnjačkih litice — prizor koji oduzima dah.
+        Kayaking, kupanje u uvali, sunset koktel na krmi. Spavamo na brodu.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">⛵ Privatni brod</span>
+        <span class="highlight-tag">🚣 Kayaking</span>
+        <span class="highlight-tag">🌅 Sunset na brodu</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/12-april.webp" alt="Ha Long Bay dan 2" loading="lazy" />
+      <div class="day-date-overlay">12. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 5</div>
+      <div class="day-title">Ha Long — pećine, ribarsko selo, slobodan dan</div>
+      <div class="day-location">⛵ Ha Long Bay</div>
+      <p class="day-desc">
+        Rano jutro — Tai Chi na palubi. Poseta Sung Sot pećini, jednoj od
+        najvećih u zalivu. Obilazak ribarskog sela na vodi gde porodice žive
+        čitave generacije. Popodne na plaži nekog malog ostrvca, samo naši.
+        Večera seafood direktno iz mora.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🧘 Tai Chi</span>
+        <span class="highlight-tag">🪨 Sung Sot pećina</span>
+        <span class="highlight-tag">🐟 Ribarsko selo</span>
+        <span class="highlight-tag">🏖 Privatna plaža</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/13-april.webp" alt="Povratak" loading="lazy" />
+      <div class="day-date-overlay">13. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 6</div>
+      <div class="day-title">Iskrcavanje, let za Danang</div>
+      <div class="day-location">✈ Ha Long → Da Nang</div>
+      <p class="day-desc">
+        Jutarnji doručak na brodu, iskrcavanje. Transfer do aerodroma i let
+        za Da Nang. Smeštaj u Hoi Anu — večera u starom gradu uz prve
+        vijetnamske lanterne koje lebde rekom.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">✈ Let Ha Long–Da Nang</span>
+        <span class="highlight-tag">🏮 Hoi An večer</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CENTAR -->
+  <div class="phase-label">
+    <div class="phase-line"></div>
+    <h2>Centar — Hoi An & okoline</h2>
+    <div class="phase-line"></div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/14-april.webp" alt="Hoi An" loading="lazy" />
+      <div class="day-date-overlay">14. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 7</div>
+      <div class="day-title">Hoi An — stari grad, krojač, tržnica</div>
+      <div class="day-location">📍 Hoi An</div>
+      <p class="day-desc">
+        Jutro u starom gradu pre turista. Šarene kuće, Japanski most, lokalne
+        pekare. Ko želi — poseta krojačima (za 24h mogu da sašiju skoro bilo šta).
+        Popodne kuvarska radionica. Uveče, pustimo lanterne niz reku Thu Bon.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🏮 Stari grad</span>
+        <span class="highlight-tag">👘 Krojač</span>
+        <span class="highlight-tag">🏮 Lanterne na reci</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/15-april.webp" alt="Hoi An slobodan" loading="lazy" />
+      <div class="day-date-overlay">15. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 8</div>
+      <div class="day-title">Slobodan dan — plaža, bicikli, odmor</div>
+      <div class="day-location">📍 Hoi An / An Bang plaža</div>
+      <p class="day-desc">
+        Slobodan dan. Ko želi — biciklom do An Bang plaže (15 min). Ko želi —
+        ostatak starog grada. Ko želi — spa tretman ili samo ležanje u bašti
+        hotela. Sami birate tempo. Večera zajedno u restoranu koji znaju samo lokali.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🚲 Bicikli</span>
+        <span class="highlight-tag">🏖 An Bang plaža</span>
+        <span class="highlight-tag">💆 Slobodan ritam</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/16-april.webp" alt="My Son" loading="lazy" />
+      <div class="day-date-overlay">16. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 9</div>
+      <div class="day-title">My Son — drevne ruševine, dolina u džungli</div>
+      <div class="day-location">📍 My Son Sanctuary</div>
+      <p class="day-desc">
+        Izlet do My Son — hramovskog kompleksa iz 4. veka smeštenog u dolini
+        okruženoj planinama. UNESCO lokacija. Jutarnji polazak pre vreline.
+        Ručak u restoranu koji gleda na rižina polja. Povratak u Hoi An za zalazak.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🏛 My Son UNESCO</span>
+        <span class="highlight-tag">🌿 Džungla</span>
+        <span class="highlight-tag">🍚 Rižina polja</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- JUG -->
+  <div class="phase-label">
+    <div class="phase-line"></div>
+    <h2>Jug — Ho Chi Minh City & Mekong</h2>
+    <div class="phase-line"></div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/17-april.webp" alt="Ho Chi Minh" loading="lazy" />
+      <div class="day-date-overlay">17. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 10</div>
+      <div class="day-title">Ho Chi Minh City — doček i prvi utisci</div>
+      <div class="day-location">✈ Hoi An → Ho Chi Minh City</div>
+      <p class="day-desc">
+        Let za Saigon (stari naziv koji i danas svi koriste). Smeštaj u District 1.
+        Popodne slobodno za šok od novog tempa — Saigon je drugačija planeta od
+        Hanoja. Uveče: rooftop sa pogledom na grad koji ne spava.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">✈ Let</span>
+        <span class="highlight-tag">🌆 Saigon</span>
+        <span class="highlight-tag">🍹 Rooftop bar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/18-april.webp" alt="Saigon obilazak" loading="lazy" />
+      <div class="day-date-overlay">18. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 11</div>
+      <div class="day-title">Saigon — istorija, tržnica, ulična hrana</div>
+      <div class="day-location">📍 Ho Chi Minh City</div>
+      <p class="day-desc">
+        Ratni muzej — emotivan, snažan, obavezan. Palata ujedinjenja. Ben Thanh
+        tržnica. Poslepodne: Ben Xe Mien Dong — živa saobraćajnica Saigona.
+        Uveče ulični food tour kroz različite kvartove — svaki kvarт ima svoju hranu.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🏛 Ratni muzej</span>
+        <span class="highlight-tag">🏪 Ben Thanh</span>
+        <span class="highlight-tag">🍢 Ulični food tour</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/19-april.webp" alt="Cu Chi" loading="lazy" />
+      <div class="day-date-overlay">19. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 12</div>
+      <div class="day-title">Cu Chi tuneli — ispod zemlje ratne istorije</div>
+      <div class="day-location">📍 Cu Chi</div>
+      <p class="day-desc">
+        Poseta Cu Chi tunelima — mreži podzemnih hodnika kojima su lokalni
+        borci živeli i ratovali godinama. Puzimo kroz uske prolaze, vidimo
+        zamke, otkrivamo kako je izgledalo preživljavanje. Snažno, neobično,
+        nezaboravno. Ručak u seoskom restoranu, povratak u Saigon.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🕳 Cu Chi tuneli</span>
+        <span class="highlight-tag">📖 Istorija</span>
+        <span class="highlight-tag">🌿 Seoska atmosfera</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/20-april.webp" alt="Mekong" loading="lazy" />
+      <div class="day-date-overlay">20. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 13</div>
+      <div class="day-title">Mekong delta — čamci, voćnjaci, tišina</div>
+      <div class="day-location">📍 Mekong Delta</div>
+      <p class="day-desc">
+        Dvodnevni izlet do Mekong delte. Čamcem kroz kanale, poseta
+        lokalnim porodicama koje prave coconut candy. Voćnjaci gde možeš
+        da jedeš direktno s drveta. Spavanje u homestay-u na obali reke —
+        veče uz žabe i cvrčke.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🚤 Rečni čamci</span>
+        <span class="highlight-tag">🥭 Voćnjaci</span>
+        <span class="highlight-tag">🏡 Homestay</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/21-april.webp" alt="Poslednji zalazak" loading="lazy" />
+      <div class="day-date-overlay">21. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 14</div>
+      <div class="day-title">Povratak u Saigon — poslednje veče</div>
+      <div class="day-location">📍 Ho Chi Minh City</div>
+      <p class="day-desc">
+        Povratak iz Mekonga. Slobodne popodne — pokloni, šetnja, poslednji
+        puta ulična hrana. Uveče — završna večera grupe. Na lep restoran,
+        uz priče, slike i osećaj da se nešto posebno desilo ovih 14 dana.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">🎁 Suveniri</span>
+        <span class="highlight-tag">🍽 Završna večera</span>
+        <span class="highlight-tag">🥂 Zdravica</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-entry reveal">
+    <div class="day-image-wrap">
+      <img src="https://vietnam-trip-website.vercel.app/images/22-april.webp" alt="Povratak kući" loading="lazy" />
+      <div class="day-date-overlay">22. april</div>
+    </div>
+    <div class="day-body">
+      <div class="day-num-label">Dan 15</div>
+      <div class="day-title">Polazak kući</div>
+      <div class="day-location">✈ Ho Chi Minh City → Beograd</div>
+      <p class="day-desc">
+        Transfer na aerodrom. Let za Beograd. U glavi su slike, mirisi i
+        zvuci koji neće brzo nestati. Vijetnam ostaje sa tobom dugo.
+        Vidimo se sledeće putovanje.
+      </p>
+      <div class="day-highlights">
+        <span class="highlight-tag">✈ Let kući</span>
+        <span class="highlight-tag">💭 Uspomene za ceo život</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Queen of <span>Compass</span></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Početna</a></li>
+      <li><a href="cena.html">Cena</a></li>
+      <li><a href="za-koga.html">Za koga</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Queen of Compass · Vijetnam</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/381640440467?text=Zdravo!%20Zanima%20me%20putovanje%20u%20Vijetnam%20u%20aprilu%202026.%20Mo%C5%BEete%20li%20mi%20re%C4%87i%20vi%C5%A1e%3F" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

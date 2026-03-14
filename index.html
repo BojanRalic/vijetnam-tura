@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Queen of Compass — Vijetnam, april 2026.</title>
+  <meta name="description" content="Luksuzno grupno putovanje kroz Vijetnam, 8–22. april 2026. Sa voditeljima Irenom i Bojanom koji žive u Vijetnamu 5 godina. Samo 12 mesta. 1890 EUR." />
+  <meta property="og:title" content="Queen of Compass — Vijetnam, april 2026." />
+  <meta property="og:description" content="15 dana. 12 putnika. Vijetnam kakav niste videli. Sa voditeljima koji tamo žive." />
+  <meta property="og:image" content="https://vietnam-trip-website.vercel.app/images/15-april.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --zelena: #4d5b28;
+      --zelena-light: #5e7030;
+      --zelena-dark: #3a4420;
+      --zuta: #ffff00;
+      --ljubicasta: #b282ff;
+      --narandzasta: #ff9812;
+      --roza: #e35eee;
+      --bela: #fafaf5;
+      --tamna: #1a1f0e;
+      --siva: #6b7280;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--tamna);
+      color: var(--bela);
+      overflow-x: hidden;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(26, 31, 14, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 0.8rem 2.5rem;
+      border-bottom: 1px solid rgba(77, 91, 40, 0.3);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--bela);
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(250, 250, 245, 0.75);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--zuta);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--zuta); }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--bela);
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--tamna);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--bela);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:hover { color: var(--zuta); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1920&q=85');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+    }
+
+    .hero-bg.loaded { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26, 31, 14, 0.2) 0%,
+        rgba(26, 31, 14, 0.1) 40%,
+        rgba(26, 31, 14, 0.85) 80%,
+        var(--tamna) 100%
+      );
+    }
+
+    /* Decorative grain texture */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 5vw 8vh;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--zuta);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px; height: 1px;
+      background: var(--zuta);
+    }
+
+    .hero-title {
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.9s ease 0.5s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--zuta);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: rgba(250, 250, 245, 0.8);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease 0.7s forwards;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease 0.9s forwards;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .hero-meta-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 245, 0.5);
+    }
+
+    .hero-meta-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--bela);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease 1.1s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--zuta);
+      color: var(--tamna);
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--narandzasta);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-primary:hover::before { transform: scaleX(1); }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid rgba(250, 250, 245, 0.4);
+      color: var(--bela);
+      padding: 1rem 2rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--ljubicasta);
+      color: var(--ljubicasta);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      right: 5vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.5s forwards;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 245, 0.5);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(250,250,245,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ===== COUNTDOWN ===== */
+    .countdown-bar {
+      position: relative;
+      background: var(--zelena-dark);
+      padding: 2rem 5vw;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      border-bottom: 1px solid rgba(77, 91, 40, 0.4);
+    }
+
+    .countdown-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--zuta);
+    }
+
+    .countdown-units {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .countdown-unit {
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--bela);
+      display: block;
+    }
+
+    .countdown-unit-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 245, 0.4);
+      display: block;
+      margin-top: 0.3rem;
+    }
+
+    .countdown-sep {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--zuta);
+      align-self: flex-start;
+      padding-top: 0.1rem;
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 8rem 5vw; }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--narandzasta);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 30px; height: 1px;
+      background: currentColor;
+    }
+
+    /* ===== INTRO SECTION ===== */
+    .intro {
+      position: relative;
+      background: var(--tamna);
+      overflow: hidden;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-text h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-text h2 em {
+      font-style: italic;
+      color: var(--ljubicasta);
+    }
+
+    .intro-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(250, 250, 245, 0.75);
+      margin-bottom: 1.2rem;
+    }
+
+    .intro-image-stack {
+      position: relative;
+      height: 540px;
+    }
+
+    .intro-img-main {
+      position: absolute;
+      top: 0; right: 0;
+      width: 80%;
+      height: 85%;
+      object-fit: cover;
+    }
+
+    .intro-img-secondary {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 55%;
+      height: 50%;
+      object-fit: cover;
+      border: 4px solid var(--tamna);
+      box-shadow: 0 0 0 1px rgba(77, 91, 40, 0.5);
+    }
+
+    .intro-badge {
+      position: absolute;
+      top: 45%; right: -2rem;
+      background: var(--zuta);
+      color: var(--tamna);
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.3;
+      animation: rotate 15s linear infinite;
+    }
+
+    /* ===== VODITELJI ===== */
+    .voditelji {
+      background: linear-gradient(135deg, var(--zelena-dark) 0%, #2a3318 50%, var(--tamna) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .voditelji::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -20%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(178, 130, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .voditelji-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .voditelji-inner h2 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 1.2rem;
+    }
+
+    .voditelji-inner > p {
+      font-size: 1.05rem;
+      color: rgba(250, 250, 245, 0.7);
+      max-width: 600px;
+      margin: 0 auto 4rem;
+      line-height: 1.7;
+    }
+
+    .voditelji-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .voditelj-card {
+      background: rgba(250, 250, 245, 0.04);
+      border: 1px solid rgba(250, 250, 245, 0.08);
+      padding: 2.5rem;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .voditelj-card:hover {
+      border-color: rgba(178, 130, 255, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .voditelj-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--ljubicasta), transparent);
+    }
+
+    .voditelj-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      color: var(--ljubicasta);
+      margin-bottom: 0.5rem;
+    }
+
+    .voditelj-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(250, 250, 245, 0.7);
+    }
+
+    /* ===== ITINERAR PREVIEW ===== */
+    .itinerar-preview {
+      background: var(--tamna);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .itinerar-preview::before {
+      content: 'VIJETNAM';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(8rem, 20vw, 18rem);
+      font-weight: 900;
+      color: rgba(77, 91, 40, 0.06);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: -0.05em;
+    }
+
+    .itinerar-preview-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .itinerar-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .itinerar-header h2 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      max-width: 500px;
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border: 1px solid rgba(77, 91, 40, 0.3);
+    }
+
+    .day-card {
+      border-right: 1px solid rgba(77, 91, 40, 0.3);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      aspect-ratio: 3/4;
+    }
+
+    .day-card:last-child { border-right: none; }
+
+    .day-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.6) saturate(0.8);
+    }
+
+    .day-card:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.75) saturate(1);
+    }
+
+    .day-card-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.2rem 1rem;
+      background: linear-gradient(to top, rgba(26, 31, 14, 0.95), transparent);
+    }
+
+    .day-number {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--narandzasta);
+      margin-bottom: 0.3rem;
+    }
+
+    .day-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+
+    /* ===== EXPERIENCES ===== */
+    .experiences {
+      background: linear-gradient(180deg, var(--tamna) 0%, var(--zelena-dark) 100%);
+      position: relative;
+    }
+
+    .experiences-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .exp-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+      align-items: center;
+    }
+
+    .exp-header h2 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      line-height: 1.1;
+    }
+
+    .exp-header p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(250, 250, 245, 0.7);
+    }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    .exp-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .exp-card:hover img { transform: scale(1.06); }
+
+    .exp-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,31,14,0.9) 0%, rgba(26,31,14,0.2) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+
+    .exp-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(255, 255, 0, 0.15);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    .exp-desc {
+      font-size: 0.8rem;
+      color: rgba(250,250,245,0.6);
+      margin-top: 0.3rem;
+    }
+
+    /* ===== PRICE TEASER ===== */
+    .price-teaser {
+      background: var(--zelena-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-teaser::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255, 255, 0, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .price-teaser-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .price-teaser h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    .price-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .price-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: rgba(250, 250, 245, 0.8);
+    }
+
+    .price-features li::before {
+      content: '✓';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      background: rgba(255, 255, 0, 0.15);
+      color: var(--zuta);
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .price-box {
+      text-align: center;
+      padding: 2.5rem;
+      border: 1px solid rgba(255, 255, 0, 0.2);
+      position: relative;
+    }
+
+    .price-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--zuta);
+    }
+
+    .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--zuta);
+      line-height: 1;
+    }
+
+    .price-currency {
+      font-size: 1.5rem;
+      vertical-align: top;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+
+    .price-per {
+      font-size: 0.8rem;
+      color: rgba(250,250,245,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    .price-spots {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(250,250,245,0.1);
+    }
+
+    .spots-count {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--roza);
+    }
+
+    .spots-label {
+      font-size: 0.75rem;
+      color: rgba(250,250,245,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== PAGE SECTIONS GRID ===== */
+    .pages-overview {
+      background: var(--tamna);
+      padding-top: 0;
+    }
+
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      border: 1px solid rgba(77, 91, 40, 0.25);
+    }
+
+    .page-card {
+      padding: 2.5rem;
+      border-right: 1px solid rgba(77, 91, 40, 0.25);
+      border-bottom: 1px solid rgba(77, 91, 40, 0.25);
+      text-decoration: none;
+      color: var(--bela);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      display: block;
+    }
+
+    .page-card:nth-child(3n) { border-right: none; }
+
+    .page-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      transition: width 0.4s ease;
+    }
+
+    .page-card:nth-child(1)::before { background: var(--narandzasta); }
+    .page-card:nth-child(2)::before { background: var(--ljubicasta); }
+    .page-card:nth-child(3)::before { background: var(--roza); }
+    .page-card:nth-child(4)::before { background: var(--zuta); }
+    .page-card:nth-child(5)::before { background: var(--narandzasta); }
+    .page-card:nth-child(6)::before { background: var(--ljubicasta); }
+
+    .page-card:hover::before { width: 100%; }
+    .page-card:hover { background: rgba(255,255,255,0.03); }
+
+    .page-num {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: rgba(250,250,245,0.3);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      transition: color 0.3s;
+    }
+
+    .page-card p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: rgba(250,250,245,0.55);
+    }
+
+    .page-arrow {
+      position: absolute;
+      top: 2.5rem; right: 2.5rem;
+      font-size: 1.2rem;
+      color: rgba(250,250,245,0.2);
+      transition: all 0.3s;
+    }
+
+    .page-card:hover .page-arrow {
+      color: var(--bela);
+      transform: translate(4px, -4px);
+    }
+
+    /* ===== INSTAGRAM ===== */
+    .instagram-section {
+      background: linear-gradient(135deg, var(--zelena-dark), var(--tamna));
+      text-align: center;
+      padding: 6rem 5vw;
+    }
+
+    .instagram-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .instagram-section p {
+      color: rgba(250,250,245,0.65);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--roza);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(227, 94, 238, 0.3);
+      padding-bottom: 0.2rem;
+      transition: all 0.3s;
+    }
+
+    .instagram-link:hover {
+      color: var(--ljubicasta);
+      border-color: var(--ljubicasta);
+      transform: translateX(4px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f1308;
+      padding: 3rem 5vw;
+      border-top: 1px solid rgba(77, 91, 40, 0.3);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .footer-brand span { color: var(--zuta); }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(250,250,245,0.5);
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--zuta); }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(250,250,245,0.25);
+    }
+
+    /* ===== WHATSAPP ===== */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 900;
+      background: #25D366;
+      color: #fff;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-btn svg {
+      width: 28px; height: 28px;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .intro-image-stack { height: 360px; }
+      .intro-badge { right: 1rem; }
+
+      .voditelji-grid { grid-template-columns: 1fr; }
+
+      .days-grid { grid-template-columns: repeat(3, 1fr); }
+      .day-card:nth-child(4), .day-card:nth-child(5) { display: none; }
+
+      .exp-grid { grid-template-columns: 1fr 1fr; }
+
+      .price-teaser-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .price-box { max-width: 280px; }
+
+      .pages-grid { grid-template-columns: 1fr 1fr; }
+      .page-card:nth-child(2n) { border-right: none; }
+      .page-card:nth-child(3n) { border-right: 1px solid rgba(77, 91, 40, 0.25); }
+      .page-card:nth-child(2n+1):nth-child(odd) { border-right: 1px solid rgba(77, 91, 40, 0.25); }
+
+      .exp-header { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 5rem 1.5rem; }
+      .nav { padding: 1rem 1.5rem; }
+      .nav.scrolled { padding: 0.75rem 1.5rem; }
+      .hero-content { padding: 0 1.5rem 6vh; }
+
+      .days-grid { grid-template-columns: 1fr 1fr; }
+      .day-card:nth-child(n+5) { display: none; }
+
+      .exp-grid { grid-template-columns: 1fr; }
+
+      .pages-grid { grid-template-columns: 1fr; }
+      .page-card { border-right: none !important; }
+
+      .countdown-units { gap: 1rem; }
+      .countdown-number { font-size: 1.8rem; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="mainNav">
+    <a href="/" class="nav-logo">
+      <img src="https://vietnam-trip-website.vercel.app/images/logo.webp" alt="Queen of Compass" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Početna</a></li>
+      <li><a href="itinerar.html">Itinerar</a></li>
+      <li><a href="galerija.html">Galerija</a></li>
+      <li><a href="smestaji.html">Smeštaji</a></li>
+      <li><a href="cena.html">Cena</a></li>
+      <li><a href="za-koga.html">Za koga</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Meni">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobileMenu()">Početna</a>
+    <a href="itinerar.html" onclick="closeMobileMenu()">Itinerar</a>
+    <a href="galerija.html" onclick="closeMobileMenu()">Galerija</a>
+    <a href="smestaji.html" onclick="closeMobileMenu()">Smeštaji</a>
+    <a href="cena.html" onclick="closeMobileMenu()">Cena</a>
+    <a href="za-koga.html" onclick="closeMobileMenu()">Za koga</a>
+    <a href="faq.html" onclick="closeMobileMenu()">FAQ</a>
+    <a href="kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Queen of Compass · April 2026.</div>
+
+      <h1 class="hero-title">
+        Vijetnam<br />
+        <em>onakav kakav</em><br />
+        zaslužuješ
+      </h1>
+
+      <p class="hero-subtitle">
+        15 dana. 12 putnika. Dva voditelja koji tamo žive.
+        Putovanje koje će ti promeniti perspektivu.
+      </p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Termin</span>
+          <span class="hero-meta-value">8–22. april 2026.</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Cena</span>
+          <span class="hero-meta-value">1890 EUR</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Grup</span>
+          <span class="hero-meta-value">max 12 osoba</span>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="itinerar.html" class="btn-primary">
+          <span>Pogledaj plan putovanja</span>
+          <span>→</span>
+        </a>
+        <a href="kontakt.html" class="btn-secondary">Pitaj nas nešto</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Skroluj</span>
+    </div>
+  </section>
+
+  <!-- ===== COUNTDOWN ===== -->
+  <div class="countdown-bar">
+    <span class="countdown-label">Do polaska ostalo</span>
+    <div class="countdown-units">
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdDays">—</span>
+        <span class="countdown-unit-label">Dana</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdHours">—</span>
+        <span class="countdown-unit-label">Sati</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdMins">—</span>
+        <span class="countdown-unit-label">Minuta</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdSecs">—</span>
+        <span class="countdown-unit-label">Sekundi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== INTRO ===== -->
+  <section class="intro">
+    <div class="intro-grid">
+      <div class="intro-text reveal">
+        <div class="section-eyebrow">O putovanju</div>
+        <h2>Nije ovo <em>obična</em> tura.</h2>
+        <p>
+          Ovo nije ruta po vikipediji. Irena i Bojan žive u Vijetnamu pet godina
+          i znaju mesta koja ne postoje ni u jednom vodiču.
+        </p>
+        <p>
+          Lokalni restorani, tajne plaže, domaći domaćini — sve ono što bi sam
+          pronašao posle meseci istraživanja, ovde te čeka od prvog dana.
+        </p>
+        <p>
+          Maksimalno 12 putnika u grupi. Intenzitet putovanja:
+          umeren. Intimnost: visoka.
+        </p>
+        <a href="za-koga.html" class="btn-secondary" style="margin-top: 1.5rem; display: inline-flex;">
+          Da li je ovo za tebe? →
+        </a>
+      </div>
+
+      <div class="intro-image-stack reveal reveal-delay-2">
+        <img
+          class="intro-img-main"
+          src="https://vietnam-trip-website.vercel.app/images/istrazujemo-1.webp"
+          alt="Istraživanje Vijetnama"
+          loading="lazy"
+        />
+        <img
+          class="intro-img-secondary"
+          src="https://vietnam-trip-website.vercel.app/images/hvala-1.webp"
+          alt="Vijetnam detalji"
+          loading="lazy"
+        />
+        <div class="intro-badge">5 godina u Vijetnamu</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VODITELJI ===== -->
+  <section class="voditelji">
+    <div class="voditelji-inner">
+      <div class="section-eyebrow reveal" style="margin: 0 auto 1.2rem;">Voditelji</div>
+      <h2 class="reveal">Irena i Bojan</h2>
+      <p class="reveal reveal-delay-1">
+        Nisu turisti koji su posle jednog poseta odlučili da vode grupe.
+        Tamo žive. Znaju jezik, ljude, hranu i tajne kutke.
+      </p>
+
+      <div class="voditelji-grid">
+        <div class="voditelj-card reveal reveal-delay-1">
+          <div class="voditelj-name">Irena</div>
+          <p>
+            Irena je ta koja oseti energiju mesta i zna tačno gde treba stati
+            i udahnuti. Suptilna, pažljiva — primetiće detalj koji svi ostali
+            produ pored. Na putovanju je tvoj kompas za autentično iskustvo.
+          </p>
+        </div>
+        <div class="voditelj-card reveal reveal-delay-2">
+          <div class="voditelj-name">Bojan</div>
+          <p>
+            Bojan organizuje, koordinira i rešava sve što može da se zakomplicuje
+            pre nego što ti to uopšte primetiš. Logistika, pregovaranje, lokalni
+            kontakti — na njemu je da svaki dan teče glatko.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ITINERAR PREVIEW ===== -->
+  <section class="itinerar-preview">
+    <div class="itinerar-preview-inner">
+      <div class="itinerar-header reveal">
+        <div>
+          <div class="section-eyebrow">Plan putovanja</div>
+          <h2>15 dana,<br />puna Vijetnama</h2>
+        </div>
+        <a href="itinerar.html" class="btn-secondary">Ceo itinerar →</a>
+      </div>
+
+      <div class="days-grid reveal">
+        <div class="day-card" onclick="location.href='itinerar.html'">
+          <img src="https://vietnam-trip-website.vercel.app/images/8-april.webp" alt="Dan 1" loading="lazy" />
+          <div class="day-card-info">
+            <div class="day-number">08. april</div>
+            <div class="day-title">Polazak — doček u Hanoju</div>
+          </div>
+        </div>
+        <div class="day-card" onclick="location.href='itinerar.html'">
+          <img src="https://vietnam-trip-website.vercel.app/images/11-april.webp" alt="Dan 4" loading="lazy" />
+          <div class="day-card-info">
+            <div class="day-number">11. april</div>
+            <div class="day-title">Ha Long Bay — brod</div>
+          </div>
+        </div>
+        <div class="day-card" onclick="location.href='itinerar.html'">
+          <img src="https://vietnam-trip-website.vercel.app/images/14-april.webp" alt="Dan 7" loading="lazy" />
+          <div class="day-card-info">
+            <div class="day-number">14. april</div>
+            <div class="day-title">Hoi An — lanternom grad</div>
+          </div>
+        </div>
+        <div class="day-card" onclick="location.href='itinerar.html'">
+          <img src="https://vietnam-trip-website.vercel.app/images/17-april.webp" alt="Dan 10" loading="lazy" />
+          <div class="day-card-info">
+            <div class="day-number">17. april</div>
+            <div class="day-title">Ho Chi Minh City</div>
+          </div>
+        </div>
+        <div class="day-card" onclick="location.href='itinerar.html'">
+          <img src="https://vietnam-trip-website.vercel.app/images/21-april.webp" alt="Dan 14" loading="lazy" />
+          <div class="day-card-info">
+            <div class="day-number">21. april</div>
+            <div class="day-title">Poslednji zalazak sunca</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCES ===== -->
+  <section class="experiences">
+    <div class="experiences-inner">
+      <div class="exp-header">
+        <div class="reveal">
+          <div class="section-eyebrow">Šta te čeka</div>
+          <h2>Iskustva koja<br />se ne zaboravljaju</h2>
+        </div>
+        <p class="reveal reveal-delay-1">
+          Svaki dan je drugačiji. Zalasci sunca nad rižinim poljem,
+          jutarnji dimsum na lokalu, krstarenje Ha Long Bay,
+          lanterni na reci — sve to i još mnogo više.
+        </p>
+      </div>
+
+      <div class="exp-grid">
+        <div class="exp-card reveal">
+          <img src="https://vietnam-trip-website.vercel.app/images/istrazujemo-2.webp" alt="Istraživanje" loading="lazy" />
+          <div class="exp-card-overlay">
+            <div class="exp-num">01</div>
+            <div class="exp-title">Lokalni život</div>
+            <div class="exp-desc">Tržnice, ulična hrana, pravi Vijetnam</div>
+          </div>
+        </div>
+        <div class="exp-card reveal reveal-delay-1">
+          <img src="https://vietnam-trip-website.vercel.app/images/istrazujemo-3.webp" alt="Priroda" loading="lazy" />
+          <div class="exp-card-overlay">
+            <div class="exp-num">02</div>
+            <div class="exp-title">Priroda i tišina</div>
+            <div class="exp-desc">Planine, reka, rižina polja</div>
+          </div>
+        </div>
+        <div class="exp-card reveal reveal-delay-2">
+          <img src="https://vietnam-trip-website.vercel.app/images/hvala-2.webp" alt="Ha Long" loading="lazy" />
+          <div class="exp-card-overlay">
+            <div class="exp-num">03</div>
+            <div class="exp-title">Ha Long Bay</div>
+            <div class="exp-desc">Brod, mora i karst litice</div>
+          </div>
+        </div>
+        <div class="exp-card reveal reveal-delay-3">
+          <img src="https://vietnam-trip-website.vercel.app/images/hvala-3.webp" alt="Kultura" loading="lazy" />
+          <div class="exp-card-overlay">
+            <div class="exp-num">04</div>
+            <div class="exp-title">Kultura i duh</div>
+            <div class="exp-desc">Hramovi, tradicija, svakodnevni život</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICE TEASER ===== -->
+  <section class="price-teaser">
+    <div class="price-teaser-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Cena</div>
+        <h2>Sve na jednom mestu, bez iznenađenja</h2>
+        <ul class="price-features">
+          <li>Svi smeštaji uključeni (14 noći)</li>
+          <li>Interni transferi i prevoz</li>
+          <li>Voditelji tokom celog putovanja</li>
+          <li>Deo obroka po programu</li>
+          <li>Krstarenje Ha Long Bay</li>
+          <li>Sve ulaznice za atrakcije po programu</li>
+        </ul>
+        <a href="cena.html" class="btn-primary">
+          <span>Vidi šta je tačno uključeno</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="price-box">
+          <div class="price-amount">
+            <span class="price-currency">€</span>1890
+          </div>
+          <div class="price-per">po osobi</div>
+          <div class="price-spots">
+            <div class="spots-count">12</div>
+            <div class="spots-label">mesta ukupno</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGES OVERVIEW ===== -->
+  <section class="pages-overview">
+    <div style="max-width: 1200px; margin: 0 auto 3rem; padding: 0 0 0 0;">
+      <div class="section-eyebrow reveal">Istraži dalje</div>
+      <h2 class="reveal" style="font-size: clamp(2rem, 4vw, 3rem);">Sve što trebaš da znaš</h2>
+    </div>
+    <div class="pages-grid">
+      <a href="itinerar.html" class="page-card reveal">
+        <div class="page-num">01</div>
+        <h3>Itinerar</h3>
+        <p>Dan po dan — šta radimo, kuda idemo, šta jedemo i gde spavamo.</p>
+        <span class="page-arrow">↗</span>
+      </a>
+      <a href="galerija.html" class="page-card reveal reveal-delay-1">
+        <div class="page-num">02</div>
+        <h3>Galerija</h3>
+        <p>Fotografije koje govore više od hiljadu reči. Vijetnam na dlanu.</p>
+        <span class="page-arrow">↗</span>
+      </a>
+      <a href="smestaji.html" class="page-card reveal reveal-delay-2">
+        <div class="page-num">03</div>
+        <h3>Smeštaji</h3>
+        <p>Gde spavamo — hoteli, vile i intimni boutique smeštaji.</p>
+        <span class="page-arrow">↗</span>
+      </a>
+      <a href="za-koga.html" class="page-card reveal">
+        <div class="page-num">04</div>
+        <h3>Za koga</h3>
+        <p>Iskreno: za koga jeste i za koga nije ova tura.</p>
+        <span class="page-arrow">↗</span>
+      </a>
+      <a href="faq.html" class="page-card reveal reveal-delay-1">
+        <div class="page-num">05</div>
+        <h3>FAQ</h3>
+        <p>Sve što si pitao (ili nisi stigao da pitaš) — odgovoreno.</p>
+        <span class="page-arrow">↗</span>
+      </a>
+      <a href="kontakt.html" class="page-card reveal reveal-delay-2">
+        <div class="page-num">06</div>
+        <h3>Kontakt</h3>
+        <p>Piši nam. Na WhatsApp, Instagram ili email — mi smo tu.</p>
+        <span class="page-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== INSTAGRAM ===== -->
+  <section class="instagram-section">
+    <div class="reveal">
+      <div class="section-eyebrow" style="justify-content: center;">Pratite nas</div>
+      <h2>Vijetnam svaki dan</h2>
+      <p>Irena i Bojan dele svakodnevni život iz Vijetnama — prati ih.</p>
+      <a href="https://instagram.com/queenofcompass" target="_blank" class="instagram-link">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+        @queenofcompass
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Queen of <span>Compass</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="itinerar.html">Itinerar</a></li>
+        <li><a href="cena.html">Cena</a></li>
+        <li><a href="za-koga.html">Za koga</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Queen of Compass · Vijetnam</div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP ===== -->
+  <a
+    href="https://wa.me/381640440467?text=Zdravo!%20Zanima%20me%20putovanje%20u%20Vijetnam%20u%20aprilu%202026.%20Mo%C5%BEete%20li%20mi%20re%C4%87i%20vi%C5%A1e%3F"
+    class="whatsapp-btn"
+    target="_blank"
+    rel="noopener"
+    aria-label="Kontaktirajte nas na WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Hero BG load animation
+    const heroBg = document.getElementById('heroBg');
+    setTimeout(() => heroBg.classList.add('loaded'), 100);
+
+    // Nav scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // Hamburger / Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // Countdown to April 8, 2026
+    const target = new Date('2026-04-08T00:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        // After departure — show as memory
+        document.getElementById('cdDays').textContent = '✈';
+        document.getElementById('cdHours').textContent = 'U';
+        document.getElementById('cdMins').textContent = 'Vijetnamu';
+        document.getElementById('cdSecs').textContent = '!';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
+      document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cdSecs').textContent = String(secs).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Za koga — Queen of Compass Vijetnam 2026</title>
+  <meta name="description" content="Za koga jeste i za koga nije ovo putovanje kroz Vijetnam. Iskreno, direktno, bez marketinga." />
+  <meta property="og:title" content="Za koga je ovo putovanje — Queen of Compass" />
+  <meta property="og:image" content="https://vietnam-trip-website.vercel.app/images/za-koga-nije.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --zelena: #4d5b28; --zelena-dark: #3a4420;
+      --zuta: #ffff00; --ljubicasta: #b282ff; --narandzasta: #ff9812;
+      --roza: #e35eee; --bela: #fafaf5; --tamna: #1a1f0e;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--tamna); color: var(--bela); overflow-x: hidden; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; }
+    .nav.scrolled { background: rgba(26,31,14,0.95); backdrop-filter: blur(20px); padding: 0.8rem 2.5rem; border-bottom: 1px solid rgba(77,91,40,0.3); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: rgba(250,250,245,0.75); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--zuta); transition: width 0.3s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--zuta); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--bela); transition: all 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--tamna); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--bela); text-decoration: none; transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--zuta); }
+
+    /* SPLIT HERO */
+    .split-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+    .split-left {
+      background: var(--zelena-dark);
+      display: flex;
+      align-items: flex-end;
+      padding: 8rem 4vw 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .split-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(77,91,40,0.6), rgba(26,31,14,0.8));
+    }
+    .split-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .split-right img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6) saturate(0.8);
+    }
+    .split-right-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(26,31,14,0.5), transparent);
+    }
+    .split-left-content { position: relative; z-index: 2; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: currentColor; }
+    .split-left .page-eyebrow { color: var(--zuta); }
+    .split-left h1 { font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+    .split-left p { font-size: 1.05rem; color: rgba(250,250,245,0.65); margin-top: 1.2rem; max-width: 420px; line-height: 1.7; }
+
+    /* MAIN */
+    .zagkoga-main { padding: 7rem 5vw; }
+    .zagkoga-inner { max-width: 1100px; margin: 0 auto; }
+
+    .zagkoga-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+
+    .zg-col h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid;
+    }
+
+    .jeste h2 { color: var(--bela); border-color: var(--zuta); }
+    .nije h2 { color: rgba(250,250,245,0.5); border-color: rgba(250,250,245,0.15); }
+
+    .zg-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .zg-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .zg-bullet {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .jeste .zg-bullet { background: rgba(255,255,0,0.12); color: var(--zuta); }
+    .nije .zg-bullet { background: rgba(250,250,245,0.05); color: rgba(250,250,245,0.3); }
+
+    .zg-text { flex: 1; }
+    .zg-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .jeste .zg-title { color: var(--bela); }
+    .nije .zg-title { color: rgba(250,250,245,0.5); }
+    .zg-sub { font-size: 0.82rem; line-height: 1.6; }
+    .jeste .zg-sub { color: rgba(250,250,245,0.45); }
+    .nije .zg-sub { color: rgba(250,250,245,0.28); }
+
+    /* CITAT */
+    .zg-citat {
+      margin-top: 6rem;
+      padding: 4rem;
+      background: rgba(77,91,40,0.12);
+      border: 1px solid rgba(77,91,40,0.3);
+      text-align: center;
+      position: relative;
+    }
+    .zg-citat::before {
+      content: '"';
+      position: absolute;
+      top: -1.5rem; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem;
+      color: var(--zuta);
+      line-height: 1;
+    }
+    .zg-citat p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-style: italic;
+      line-height: 1.5;
+      color: rgba(250,250,245,0.85);
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+    .zg-citat-author { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(250,250,245,0.35); }
+
+    /* CTA */
+    .zg-cta { margin-top: 4rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--zuta); color: var(--tamna); padding: 1rem 2rem; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; text-decoration: none; text-transform: uppercase; transition: all 0.3s ease; position: relative; overflow: hidden; }
+    .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--narandzasta); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+    .btn-primary:hover::before { transform: scaleX(1); }
+    .btn-primary span { position: relative; z-index: 1; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.6rem; border: 1px solid rgba(250,250,245,0.3); color: var(--bela); padding: 1rem 2rem; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.05em; text-decoration: none; text-transform: uppercase; transition: all 0.3s ease; }
+    .btn-secondary:hover { border-color: var(--ljubicasta); color: var(--ljubicasta); }
+
+    footer { background: #0f1308; padding: 3rem 5vw; border-top: 1px solid rgba(77,91,40,0.3); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; }
+    .footer-brand span { color: var(--zuta); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; }
+    .footer-links a { text-decoration: none; color: rgba(250,250,245,0.5); font-size: 0.82rem; letter-spacing: 0.05em; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--zuta); }
+    .footer-copy { font-size: 0.78rem; color: rgba(250,250,245,0.25); }
+
+    .whatsapp-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; background: #25D366; color: #fff; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; }
+    .whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+    .whatsapp-btn svg { width: 28px; height: 28px; }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .split-hero { grid-template-columns: 1fr; min-height: auto; }
+      .split-right { height: 50vw; }
+      .zagkoga-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 1rem 1.5rem; }
+      .zagkoga-main { padding: 4rem 1.5rem; }
+      .zg-citat { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav-logo"><img src="https://vietnam-trip-website.vercel.app/images/logo.webp" alt="Queen of Compass" /></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Početna</a></li>
+    <li><a href="itinerar.html">Itinerar</a></li>
+    <li><a href="galerija.html">Galerija</a></li>
+    <li><a href="smestaji.html">Smeštaji</a></li>
+    <li><a href="cena.html">Cena</a></li>
+    <li><a href="za-koga.html" class="active">Za koga</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobileMenu()">Početna</a>
+  <a href="itinerar.html" onclick="closeMobileMenu()">Itinerar</a>
+  <a href="galerija.html" onclick="closeMobileMenu()">Galerija</a>
+  <a href="smestaji.html" onclick="closeMobileMenu()">Smeštaji</a>
+  <a href="cena.html" onclick="closeMobileMenu()">Cena</a>
+  <a href="za-koga.html" onclick="closeMobileMenu()">Za koga</a>
+  <a href="faq.html" onclick="closeMobileMenu()">FAQ</a>
+  <a href="kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+</div>
+
+<div class="split-hero">
+  <div class="split-left">
+    <div class="split-left-content">
+      <div class="page-eyebrow">Iskreno</div>
+      <h1>Za koga<br />je ovo?</h1>
+      <p>Nema marketinga. Evo ko će se sjajno provesti — i ko neće.</p>
+    </div>
+  </div>
+  <div class="split-right">
+    <img src="https://vietnam-trip-website.vercel.app/images/za-koga-nije.webp" alt="Vijetnam" loading="eager" />
+    <div class="split-right-overlay"></div>
+  </div>
+</div>
+
+<div class="zagkoga-main">
+  <div class="zagkoga-inner">
+    <div class="zagkoga-grid">
+
+      <div class="zg-col jeste reveal">
+        <h2>Jeste za tebe ako...</h2>
+        <ul class="zg-list">
+          <li class="zg-item">
+            <div class="zg-bullet">✓</div>
+            <div class="zg-text">
+              <div class="zg-title">Voliš da istražuješ, a ne samo da razgledaš</div>
+              <div class="zg-sub">Tržnice, lokalni restorani, skrivene ulice — to je ono što tražiš od putovanja.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✓</div>
+            <div class="zg-text">
+              <div class="zg-title">Cenjiš mali, intiman krug</div>
+              <div class="zg-sub">Odgovara ti 12 osoba, a ne 50. Radije večeraš zajedno u dobrom društvu nego u velikoj grupi turista.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✓</div>
+            <div class="zg-text">
+              <div class="zg-title">Spreman/na da probaš novu hranu</div>
+              <div class="zg-sub">Neće uvek biti poznatih ukusa. Ali baš to je poenta — Vijetnam se jede, ne samo gleda.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✓</div>
+            <div class="zg-text">
+              <div class="zg-title">Fleksibilan/na i bez strogih zahteva</div>
+              <div class="zg-sub">Razumeš da na putovanju ponekad kasni autobus ili se plan promeni. To nije problem — to je avantura.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✓</div>
+            <div class="zg-text">
+              <div class="zg-title">Hoćeš voditelje koji ZAISTA znaju destinaciju</div>
+              <div class="zg-sub">Irena i Bojan žive tamo. Nisu pročitali o Vijetnamu — oni ga živе.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✓</div>
+            <div class="zg-text">
+              <div class="zg-title">Tražiš putovanje koje menja perspektivu</div>
+              <div class="zg-sub">Ne idem kući isti/a kao što sam pošao/la. To ti je cilj.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="zg-col nije reveal reveal-delay-1">
+        <h2>Nije za tebe ako...</h2>
+        <ul class="zg-list">
+          <li class="zg-item">
+            <div class="zg-bullet">✕</div>
+            <div class="zg-text">
+              <div class="zg-title">Hoćeš all-inclusive i ležanje na plaži</div>
+              <div class="zg-sub">Ovo putovanje je aktivno. Hodamo, istražujemo, doživljavamo. Nije odmor u resortu.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✕</div>
+            <div class="zg-text">
+              <div class="zg-title">Imaš puno dijetetskih ograničenja</div>
+              <div class="zg-sub">Vijetnamska hrana je odlična, ali prilagoditi svaki obrok nije uvek moguće. Glutenski, alergije — razgovaraj sa nama pre.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✕</div>
+            <div class="zg-text">
+              <div class="zg-title">Ne podnosi vrućinu</div>
+              <div class="zg-sub">April je topao. Nije ekstrem, ali svakodnevno je 30°C+. Treba biti svestan/na toga.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✕</div>
+            <div class="zg-text">
+              <div class="zg-title">Očekuješ savršenu organizaciju bez ikakve imprevizacije</div>
+              <div class="zg-sub">Azija je živa, dinamična sredina. Ponekad se nešto promeni. To je deo iskustva.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✕</div>
+            <div class="zg-text">
+              <div class="zg-title">Tražiš luksuz na svakom koraku</div>
+              <div class="zg-sub">Smeštaji su odlični, ali nema petostepenih tura. Ovo je autentično putovanje, ne luksuzni katalog.</div>
+            </div>
+          </li>
+          <li class="zg-item">
+            <div class="zg-bullet">✕</div>
+            <div class="zg-text">
+              <div class="zg-title">Teško se snalaziš u novim, nepoznatim situacijama</div>
+              <div class="zg-sub">Buka, gužva, drugačija kultura — Azija udara na sva čula. Treba biti spreman/na na to.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="zg-citat reveal">
+      <p>Ovo putovanje je za ljude koji misle da još nisu videli ništa — a zapravo su samo čekali pravo društvo i pravog vodiča.</p>
+      <div class="zg-citat-author">— Irena & Bojan, Queen of Compass</div>
+    </div>
+
+    <div class="zg-cta reveal">
+      <a href="https://wa.me/381640440467?text=Zdravo!%20Zanima%20me%20putovanje%20u%20Vijetnam%20u%20aprilu%202026.%20Mo%C5%BEete%20li%20mi%20re%C4%87i%20vi%C5%A1e%3F" target="_blank" class="btn-primary">
+        <span>Ovo je za mene — pišem!</span>
+        <span>→</span>
+      </a>
+      <a href="faq.html" class="btn-secondary">Imam još pitanja</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Queen of <span>Compass</span></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Početna</a></li>
+      <li><a href="itinerar.html">Itinerar</a></li>
+      <li><a href="cena.html">Cena</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Queen of Compass · Vijetnam</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/381640440467?text=Zdravo!%20Zanima%20me%20putovanje%20u%20Vijetnam%20u%20aprilu%202026.%20Mo%C5%BEete%20li%20mi%20re%C4%87i%20vi%C5%A1e%3F" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

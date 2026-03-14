@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cena — Queen of Compass Vijetnam 2026</title>
+  <meta name="description" content="Cena putovanja kroz Vijetnam je 1890 EUR. Šta je uključeno i šta nije — sve transparentno i bez iznenađenja." />
+  <meta property="og:title" content="Cena — Vijetnam, april 2026. — 1890 EUR" />
+  <meta property="og:image" content="https://vietnam-trip-website.vercel.app/images/21-april.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --zelena: #4d5b28; --zelena-dark: #3a4420;
+      --zuta: #ffff00; --ljubicasta: #b282ff; --narandzasta: #ff9812;
+      --roza: #e35eee; --bela: #fafaf5; --tamna: #1a1f0e;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--tamna); color: var(--bela); overflow-x: hidden; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; }
+    .nav.scrolled { background: rgba(26,31,14,0.95); backdrop-filter: blur(20px); padding: 0.8rem 2.5rem; border-bottom: 1px solid rgba(77,91,40,0.3); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: rgba(250,250,245,0.75); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--zuta); transition: width 0.3s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--zuta); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--bela); transition: all 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--tamna); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--bela); text-decoration: none; transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--zuta); }
+
+    /* HERO */
+    .price-hero {
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 8rem 5vw 5rem;
+    }
+    .price-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://vietnam-trip-website.vercel.app/images/21-april.webp');
+      background-size: cover; background-position: center;
+    }
+    .price-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(26,31,14,0.7), rgba(26,31,14,0.88));
+    }
+    .price-hero-content { position: relative; z-index: 2; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--zuta); margin-bottom: 1.5rem; justify-content: center; }
+    .page-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: currentColor; }
+    .price-hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.2; margin-bottom: 2rem; }
+    .big-price {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6rem, 18vw, 14rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: var(--zuta);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .price-suffix { font-size: 1rem; color: rgba(250,250,245,0.55); letter-spacing: 0.15em; text-transform: uppercase; }
+
+    /* MAIN */
+    .cena-main { padding: 6rem 5vw; }
+    .cena-inner { max-width: 1000px; margin: 0 auto; }
+
+    .cena-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 5rem;
+    }
+
+    .cena-col h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(250,250,245,0.1);
+    }
+
+    .cena-col.ukljuceno h2 { color: var(--bela); }
+    .cena-col.nije-ukljuceno h2 { color: rgba(250,250,245,0.5); }
+
+    .cena-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+
+    .cena-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(250,250,245,0.05);
+    }
+
+    .cena-item:last-child { border-bottom: none; }
+
+    .cena-icon {
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+      margin-top: 0.05rem;
+    }
+
+    .ukljuceno .cena-icon {
+      background: rgba(255,255,0,0.1);
+      color: var(--zuta);
+    }
+
+    .nije-ukljuceno .cena-icon {
+      background: rgba(250,250,245,0.06);
+      color: rgba(250,250,245,0.3);
+    }
+
+    .cena-item-text { flex: 1; }
+    .cena-item-title { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .ukljuceno .cena-item-title { color: var(--bela); }
+    .nije-ukljuceno .cena-item-title { color: rgba(250,250,245,0.5); }
+    .cena-item-sub { font-size: 0.8rem; color: rgba(250,250,245,0.35); line-height: 1.5; }
+
+    /* PRICING BREAKDOWN */
+    .price-breakdown {
+      background: rgba(250,250,245,0.03);
+      border: 1px solid rgba(255,255,0,0.15);
+      padding: 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .price-breakdown::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--zuta), transparent);
+    }
+    .price-breakdown h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+
+    .breakdown-rows { display: flex; flex-direction: column; gap: 0; }
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(250,250,245,0.06);
+    }
+    .breakdown-row:last-child { border-bottom: none; }
+    .breakdown-label { font-size: 0.9rem; color: rgba(250,250,245,0.65); }
+    .breakdown-value { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+    .breakdown-row.total { margin-top: 1rem; padding-top: 1.5rem; border-top: 2px solid rgba(255,255,0,0.3) !important; border-bottom: none; }
+    .breakdown-row.total .breakdown-label { font-size: 1rem; font-weight: 600; color: var(--bela); }
+    .breakdown-row.total .breakdown-value { font-size: 2rem; color: var(--zuta); }
+
+    /* NOTE */
+    .price-note {
+      background: rgba(178,130,255,0.06);
+      border-left: 3px solid var(--ljubicasta);
+      padding: 1.5rem 2rem;
+      margin-bottom: 3rem;
+    }
+    .price-note p { font-size: 0.9rem; line-height: 1.7; color: rgba(250,250,245,0.7); }
+    .price-note strong { color: var(--ljubicasta); }
+
+    /* CTA */
+    .cena-cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--zuta); color: var(--tamna); padding: 1rem 2rem; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; text-decoration: none; text-transform: uppercase; transition: all 0.3s ease; position: relative; overflow: hidden; }
+    .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--narandzasta); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+    .btn-primary:hover::before { transform: scaleX(1); }
+    .btn-primary span { position: relative; z-index: 1; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.6rem; border: 1px solid rgba(250,250,245,0.3); color: var(--bela); padding: 1rem 2rem; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.05em; text-decoration: none; text-transform: uppercase; transition: all 0.3s ease; }
+    .btn-secondary:hover { border-color: var(--ljubicasta); color: var(--ljubicasta); }
+
+    footer { background: #0f1308; padding: 3rem 5vw; border-top: 1px solid rgba(77,91,40,0.3); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; }
+    .footer-brand span { color: var(--zuta); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; }
+    .footer-links a { text-decoration: none; color: rgba(250,250,245,0.5); font-size: 0.82rem; letter-spacing: 0.05em; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--zuta); }
+    .footer-copy { font-size: 0.78rem; color: rgba(250,250,245,0.25); }
+
+    .whatsapp-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; background: #25D366; color: #fff; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; }
+    .whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+    .whatsapp-btn svg { width: 28px; height: 28px; }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .cena-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 1rem 1.5rem; }
+      .cena-main { padding: 4rem 1.5rem; }
+      .price-breakdown { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav-logo"><img src="https://vietnam-trip-website.vercel.app/images/logo.webp" alt="Queen of Compass" /></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Početna</a></li>
+    <li><a href="itinerar.html">Itinerar</a></li>
+    <li><a href="galerija.html">Galerija</a></li>
+    <li><a href="smestaji.html">Smeštaji</a></li>
+    <li><a href="cena.html" class="active">Cena</a></li>
+    <li><a href="za-koga.html">Za koga</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobileMenu()">Početna</a>
+  <a href="itinerar.html" onclick="closeMobileMenu()">Itinerar</a>
+  <a href="galerija.html" onclick="closeMobileMenu()">Galerija</a>
+  <a href="smestaji.html" onclick="closeMobileMenu()">Smeštaji</a>
+  <a href="cena.html" onclick="closeMobileMenu()">Cena</a>
+  <a href="za-koga.html" onclick="closeMobileMenu()">Za koga</a>
+  <a href="faq.html" onclick="closeMobileMenu()">FAQ</a>
+  <a href="kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+</div>
+
+<div class="price-hero">
+  <div class="price-hero-bg"></div>
+  <div class="price-hero-overlay"></div>
+  <div class="price-hero-content">
+    <div class="page-eyebrow">Transparentno i jasno</div>
+    <h1>Sve na jednom mestu</h1>
+    <span class="big-price">1890</span>
+    <div class="price-suffix">EUR · po osobi</div>
+  </div>
+</div>
+
+<div class="cena-main">
+  <div class="cena-inner">
+
+    <div class="cena-grid">
+      <!-- UKLJUČENO -->
+      <div class="cena-col ukljuceno reveal">
+        <h2>✓ Uključeno</h2>
+        <ul class="cena-list">
+          <li class="cena-item">
+            <div class="cena-icon">🏨</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Svi smeštaji — 14 noći</div>
+              <div class="cena-item-sub">Boutique hoteli i vila u Hoi Anu, 2 noći na brodu u Ha Long Bay</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">🚌</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Interni transferi</div>
+              <div class="cena-item-sub">Svi prevozi između destinacija (osim međunarodnog leta)</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">✈</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Interni letovi u Vijetnamu</div>
+              <div class="cena-item-sub">Hanoi → Da Nang, Da Nang → Ho Chi Minh City</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">⛵</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Krstarenje Ha Long Bay</div>
+              <div class="cena-item-sub">2 dana i 2 noći na privatnom brodu, sa svim obrocima na brodu</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">👤</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Voditelji Irena i Bojan</div>
+              <div class="cena-item-sub">Svo vreme tokom putovanja, 24/7 dostupni</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">🎟</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Sve ulaznice po programu</div>
+              <div class="cena-item-sub">My Son, Cu Chi tuneli, Hoan Kiem, Sung Sot pećina i ostalo</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">🍜</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Deo obroka</div>
+              <div class="cena-item-sub">Doručak svaki dan, ručak/večera po programu (procena: 40% obroka)</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">🧑‍🍳</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Kuvarske radionice</div>
+              <div class="cena-item-sub">Pho workshop u Hanoju, kuvarska škola u Hoi Anu</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- NIJE UKLJUČENO -->
+      <div class="cena-col nije-ukljuceno reveal">
+        <h2>✕ Nije uključeno</h2>
+        <ul class="cena-list">
+          <li class="cena-item">
+            <div class="cena-icon">✈</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Međunarodni let</div>
+              <div class="cena-item-sub">Beograd ↔ Hanoi / Ho Chi Minh. Možemo preporučiti opcije.</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">📄</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Viza za Vijetnam</div>
+              <div class="cena-item-sub">E-viza (~25 USD), lako se uradi online. Vodimo vas kroz proces.</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">🛡</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Putno osiguranje</div>
+              <div class="cena-item-sub">Obavezno. Preporučujemo sa medicinskim pokrićem.</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">🍽</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Ostali obroci</div>
+              <div class="cena-item-sub">Procena: ~15-20 USD/dan za samostalne obroke (hrana je jeftina).</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">🎁</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Suveniri i lične kupovine</div>
+              <div class="cena-item-sub">Krojač u Hoi Anu, tržnice, lokalne prodavnice.</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">💆</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Spa i masaže</div>
+              <div class="cena-item-sub">Opciono, ali preporučujemo — izuzetno jeftino.</div>
+            </div>
+          </li>
+          <li class="cena-item">
+            <div class="cena-icon">🍺</div>
+            <div class="cena-item-text">
+              <div class="cena-item-title">Alkohol i napici</div>
+              <div class="cena-item-sub">Osim onog što je uključeno na brodu Ha Long Bay.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BREAKDOWN -->
+    <div class="price-breakdown reveal">
+      <h2>Ukratko</h2>
+      <div class="breakdown-rows">
+        <div class="breakdown-row">
+          <span class="breakdown-label">Smeštaji (14 noći)</span>
+          <span class="breakdown-value">uključeno</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-label">Interni letovi (2×)</span>
+          <span class="breakdown-value">uključeno</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-label">Krstarenje Ha Long Bay</span>
+          <span class="breakdown-value">uključeno</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-label">Voditelji 15 dana</span>
+          <span class="breakdown-value">uključeno</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-label">Ulaznice, transferi, radionice</span>
+          <span class="breakdown-value">uključeno</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-label">Procenjeni lični troškovi (Vijetnam)</span>
+          <span class="breakdown-value">~300–500 EUR</span>
+        </div>
+        <div class="breakdown-row total">
+          <span class="breakdown-label">Cena putovanja</span>
+          <span class="breakdown-value">1890 EUR</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-note reveal">
+      <p>
+        <strong>Napomena o rezervaciji:</strong> Mesta se rezervišu uplatom depozita od 300 EUR.
+        Ostatak se plaća u dogovorenim ratama. Maksimalno 12 putnika —
+        kada se popune mesta, lista čekanja. Pitaj nas za sve detalje.
+      </p>
+    </div>
+
+    <div class="cena-cta reveal">
+      <a href="https://wa.me/381640440467?text=Zdravo!%20Zanima%20me%20putovanje%20u%20Vijetnam%20u%20aprilu%202026.%20Mo%C5%BEete%20li%20mi%20re%C4%87i%20vi%C5%A1e%3F" target="_blank" class="btn-primary">
+        <span>Rezerviši mesto</span>
+        <span>→</span>
+      </a>
+      <a href="faq.html" class="btn-secondary">Imam pitanje →</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Queen of <span>Compass</span></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Početna</a></li>
+      <li><a href="itinerar.html">Itinerar</a></li>
+      <li><a href="za-koga.html">Za koga</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Queen of Compass · Vijetnam</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/381640440467?text=Zdravo!%20Zanima%20me%20putovanje%20u%20Vijetnam%20u%20aprilu%202026.%20Mo%C5%BEete%20li%20mi%20re%C4%87i%20vi%C5%A1e%3F" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

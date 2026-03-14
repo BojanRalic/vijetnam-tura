@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt — Queen of Compass Vijetnam 2026</title>
+  <meta name="description" content="Kontaktiraj Queen of Compass — Instagram @queenofcompass, WhatsApp ili email. Putovanje Vijetnam, april 2026." />
+  <meta property="og:title" content="Kontakt — Queen of Compass" />
+  <meta property="og:image" content="https://vietnam-trip-website.vercel.app/images/hvala-4.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --zelena: #4d5b28; --zelena-dark: #3a4420;
+      --zuta: #ffff00; --ljubicasta: #b282ff; --narandzasta: #ff9812;
+      --roza: #e35eee; --bela: #fafaf5; --tamna: #1a1f0e;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--tamna); color: var(--bela); overflow-x: hidden; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; }
+    .nav.scrolled { background: rgba(26,31,14,0.95); backdrop-filter: blur(20px); padding: 0.8rem 2.5rem; border-bottom: 1px solid rgba(77,91,40,0.3); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: rgba(250,250,245,0.75); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--zuta); transition: width 0.3s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--zuta); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--bela); transition: all 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--tamna); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--bela); text-decoration: none; transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--zuta); }
+
+    /* FULL HERO */
+    .kontakt-hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 5vw 5rem;
+      position: relative;
+      background: linear-gradient(135deg, var(--zelena-dark) 0%, #1a2010 100%);
+      overflow: hidden;
+    }
+
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,255,0,0.04) 0%, transparent 70%);
+    }
+
+    .hero-left-content { position: relative; z-index: 2; }
+
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--roza); margin-bottom: 1.5rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: currentColor; }
+
+    .hero-left h1 { font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .hero-left h1 em { font-style: italic; color: var(--roza); }
+    .hero-left > div > p { font-size: 1rem; color: rgba(250,250,245,0.6); line-height: 1.7; margin-bottom: 3rem; max-width: 400px; }
+
+    /* Contact options */
+    .contact-options { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 2rem;
+      text-decoration: none;
+      color: var(--bela);
+      border: 1px solid rgba(250,250,245,0.08);
+      background: rgba(250,250,245,0.03);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-option::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      transform: scaleY(0);
+      transition: transform 0.3s;
+    }
+
+    .contact-option.wa::before { background: #25D366; }
+    .contact-option.ig::before { background: linear-gradient(180deg, #fd5949, #d6249f, #285AEB); }
+    .contact-option.em::before { background: var(--ljubicasta); }
+
+    .contact-option:hover { border-color: rgba(250,250,245,0.2); background: rgba(250,250,245,0.06); transform: translateX(4px); }
+    .contact-option:hover::before { transform: scaleY(1); }
+
+    .contact-option-icon {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-option.wa .contact-option-icon { background: rgba(37,211,102,0.15); }
+    .contact-option.ig .contact-option-icon { background: rgba(253,89,73,0.15); }
+    .contact-option.em .contact-option-icon { background: rgba(178,130,255,0.15); }
+
+    .contact-option-icon svg { width: 22px; height: 22px; }
+    .contact-option.wa .contact-option-icon svg { color: #25D366; }
+    .contact-option.ig .contact-option-icon svg { color: #fd5949; }
+    .contact-option.em .contact-option-icon svg { color: var(--ljubicasta); }
+
+    .contact-option-text { flex: 1; }
+    .contact-option-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,250,245,0.4); margin-bottom: 0.2rem; }
+    .contact-option-value { font-weight: 500; font-size: 0.95rem; }
+
+    /* Right side — form */
+    .hero-right {
+      background: rgba(250,250,245,0.02);
+      display: flex;
+      align-items: center;
+      padding: 8rem 5vw 5rem;
+      border-left: 1px solid rgba(77,91,40,0.2);
+    }
+
+    .form-wrap { width: 100%; max-width: 460px; }
+    .form-wrap h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .form-wrap > p { font-size: 0.9rem; color: rgba(250,250,245,0.5); margin-bottom: 2.5rem; line-height: 1.5; }
+
+    .form-group { margin-bottom: 1.5rem; }
+
+    .form-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,250,245,0.45);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      background: rgba(250,250,245,0.04);
+      border: 1px solid rgba(250,250,245,0.1);
+      color: var(--bela);
+      padding: 0.9rem 1.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--ljubicasta);
+    }
+
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(250,250,245,0.25); }
+
+    .form-textarea { min-height: 130px; resize: vertical; }
+
+    .form-select option { background: var(--tamna); color: var(--bela); }
+
+    .form-submit {
+      width: 100%;
+      background: var(--zuta);
+      color: var(--tamna);
+      border: none;
+      padding: 1.1rem 2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .form-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--narandzasta);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .form-submit:hover::before { transform: scaleX(1); }
+    .form-submit span { position: relative; z-index: 1; }
+
+    .form-note { font-size: 0.75rem; color: rgba(250,250,245,0.3); margin-top: 1rem; text-align: center; line-height: 1.5; }
+
+    /* Success */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(77,91,40,0.2);
+      border: 1px solid rgba(77,91,40,0.4);
+    }
+    .form-success h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .form-success p { font-size: 0.9rem; color: rgba(250,250,245,0.6); }
+
+    footer { background: #0f1308; padding: 3rem 5vw; border-top: 1px solid rgba(77,91,40,0.3); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; }
+    .footer-brand span { color: var(--zuta); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; }
+    .footer-links a { text-decoration: none; color: rgba(250,250,245,0.5); font-size: 0.82rem; letter-spacing: 0.05em; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--zuta); }
+    .footer-copy { font-size: 0.78rem; color: rgba(250,250,245,0.25); }
+    .whatsapp-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; background: #25D366; color: #fff; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; }
+    .whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+    .whatsapp-btn svg { width: 28px; height: 28px; }
+
+    @media (max-width: 1000px) {
+      .kontakt-hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 8rem 5vw 4rem; }
+      .hero-right { padding: 3rem 5vw 5rem; border-left: none; border-top: 1px solid rgba(77,91,40,0.2); }
+      .form-wrap { max-width: 100%; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 1rem 1.5rem; }
+      .hero-left { padding: 7rem 1.5rem 3rem; }
+      .hero-right { padding: 3rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav-logo"><img src="https://vietnam-trip-website.vercel.app/images/logo.webp" alt="Queen of Compass" /></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Početna</a></li>
+    <li><a href="itinerar.html">Itinerar</a></li>
+    <li><a href="galerija.html">Galerija</a></li>
+    <li><a href="smestaji.html">Smeštaji</a></li>
+    <li><a href="cena.html">Cena</a></li>
+    <li><a href="za-koga.html">Za koga</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="kontakt.html" class="active">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobileMenu()">Početna</a>
+  <a href="itinerar.html" onclick="closeMobileMenu()">Itinerar</a>
+  <a href="galerija.html" onclick="closeMobileMenu()">Galerija</a>
+  <a href="smestaji.html" onclick="closeMobileMenu()">Smeštaji</a>
+  <a href="cena.html" onclick="closeMobileMenu()">Cena</a>
+  <a href="za-koga.html" onclick="closeMobileMenu()">Za koga</a>
+  <a href="faq.html" onclick="closeMobileMenu()">FAQ</a>
+  <a href="kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+</div>
+
+<div class="kontakt-hero">
+  <div class="hero-left">
+    <div class="hero-left-content">
+      <div class="page-eyebrow">Piši nam</div>
+      <h1>Hajde da<br /><em>pričamo</em></h1>
+      <p>
+        Imaš pitanje, hoćeš da rezervišeš mesto ili samo hoćeš da saznaš više —
+        tu smo. Odgovaramo brzo.
+      </p>
+
+      <div class="contact-options">
+        <a href="https://wa.me/381640440467?text=Zdravo!%20Zanima%20me%20putovanje%20u%20Vijetnam%20u%20aprilu%202026.%20Mo%C5%BEete%20li%20mi%20re%C4%87i%20vi%C5%A1e%3F" target="_blank" class="contact-option wa">
+          <div class="contact-option-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </div>
+          <div class="contact-option-text">
+            <div class="contact-option-label">WhatsApp — najbrže</div>
+            <div class="contact-option-value">+381 64 044 0467</div>
+          </div>
+          <span style="opacity:0.3; font-size: 1.2rem;">→</span>
+        </a>
+
+        <a href="https://instagram.com/queenofcompass" target="_blank" class="contact-option ig">
+          <div class="contact-option-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="contact-option-text">
+            <div class="contact-option-label">Instagram</div>
+            <div class="contact-option-value">@queenofcompass</div>
+          </div>
+          <span style="opacity:0.3; font-size: 1.2rem;">→</span>
+        </a>
+
+        <div class="contact-option em" style="cursor:default; transform: none;">
+          <div class="contact-option-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <polyline points="2,4 12,13 22,4"/>
+            </svg>
+          </div>
+          <div class="contact-option-text">
+            <div class="contact-option-label">Email</div>
+            <div class="contact-option-value">Forma ispod →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="form-wrap">
+      <h2>Pošalji poruku</h2>
+      <p>Odgovaramo u roku od 24 sata. Obično mnogo brže.</p>
+
+      <form id="contactForm" onsubmit="submitForm(event)" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="name">Ime i prezime</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Marko Marković" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email adresa</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="marko@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="topic">Tema</label>
+          <select class="form-select" id="topic" name="topic">
+            <option value="">Izaberi temu</option>
+            <option value="rezervacija">Rezervacija mesta</option>
+            <option value="cena">Pitanje o ceni</option>
+            <option value="itinerar">Pitanje o programu</option>
+            <option value="logistika">Logistika (let, viza...)</option>
+            <option value="ostalo">Nešto drugo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Poruka</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Zdravo! Zanima me putovanje u Vijetnam..." required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit"><span>Pošalji poruku →</span></button>
+        <p class="form-note">Tvoji podaci se koriste isključivo za odgovor na tvoju poruku.</p>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <h3>Poruka primljena!</h3>
+        <p>Javljamo ti se uskoro. U međuvremenu — prati nas na <a href="https://instagram.com/queenofcompass" target="_blank" style="color: var(--roza);">@queenofcompass</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Queen of <span>Compass</span></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Početna</a></li>
+      <li><a href="itinerar.html">Itinerar</a></li>
+      <li><a href="cena.html">Cena</a></li>
+      <li><a href="za-koga.html">Za koga</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Queen of Compass · Vijetnam</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/381640440467?text=Zdravo!%20Zanima%20me%20putovanje%20u%20Vijetnam%20u%20aprilu%202026.%20Mo%C5%BEete%20li%20mi%20re%C4%87i%20vi%C5%A1e%3F" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const name = form.querySelector('#name').value.trim();
+    const email = form.querySelector('#email').value.trim();
+    const message = form.querySelector('#message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Molim popuni sva obavezna polja.');
+      return;
+    }
+
+    // Simulate submission — in production, replace with actual backend/Formspree/EmailJS
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>
